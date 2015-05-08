@@ -5,6 +5,7 @@ class MissionsController < ApplicationController
   end
 
   def show
+    @mission = Mission.find(params[:id])
   end
 
   def new
@@ -42,6 +43,7 @@ class MissionsController < ApplicationController
 
     @mission.update_attribute("current_balance", @mission.current_balance + @amount)
 
+    @update = Update.create(user_id: @current_user.id, amount: @amount)
 
     redirect_to :mains
   end

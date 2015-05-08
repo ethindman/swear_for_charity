@@ -29,10 +29,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
+    if @current_user.update(profile_params)
+      flash[:success] = "Profile updated!"
+      redirect_to :mains
+    else
+      flash[:errors_array] = @user.errors.full_messages
+      redirect_to(:back)
+    end
   end
 
   def destroy
@@ -45,7 +51,7 @@ class UsersController < ApplicationController
     end
 
     def profile_params
-      
+      params.require(:profile).permit(:first_name, :last_name)  
     end
 
 end

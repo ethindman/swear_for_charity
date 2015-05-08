@@ -4,6 +4,7 @@ class MainsController < ApplicationController
   def index
   	@users = User.all.where.not(id: @current_user.id)
     @current_mission = @current_user.missions.first
+    @updates = Update.all.includes(:user)
   end
 
   def show

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	
-	has_many :missions
+	has_many :missions, dependent: :destroy
+	has_many :updates, dependent: :destroy
 
 	has_many :friendships
 	has_many :friends, class_name: "User", foreign_key: "friend_id", through: :friendships

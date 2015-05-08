@@ -1,18 +1,20 @@
 <h1 class="mediumHeadline">My Swear Jar</h1>
 <div class="text-center">
-	<a href="/missions/<%= @current_mission.id %>/edit">
-		<button class="btn btn-success btn-lg">Add to Swear Jar</button>
-	</a>
+	<% if @current_mission %>
+		<a href="/missions/<%= @current_mission.id %>/edit">
+			<button class="btn btn-success btn-lg">Add to Swear Jar</button>
+		</a>
+	<% end %>
 </div>
-
+<% if @current_mission %>
 <div class="link"><a href="/missions/<%= @current_mission.id %>" class="hvr-grow-rotate hvr-reveal">
 	<h3>Current Balance: $<%= @current_mission.current_balance %></h3></a>
 </div>
+<% end %>
 
 <div class="activity">
 	<h2 class="mediumHeadline">What's the scoop?</h2>
-	<p class="friend">Your friend John added $5 today to his swear jar for forgetting to take the garbage out this morning.</p>
-	<p class="me">You added $100 at 3:55PM for swearing.</p>
-	<p class="friend">Your friend John added $5 today to his swear jar for forgetting to take the garbage out this morning.</p>
-	<p class="me">You added $100 at 3:55PM for swearing.</p>
-</div>
+	<% @updates.each do |update| %>
+			<p class="friend"><%= update.user.first_name %> added $<%= update.amount %> to the swear jar</p>	
+	<% end %>
+	</div>
