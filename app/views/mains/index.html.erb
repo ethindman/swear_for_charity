@@ -1,12 +1,18 @@
-<h1>Welcome to Swear Jar, <%= @current_user.first_name %></h1>
-<h2>This application will help you give up your bad habit.</h2>
-<h4>Think of it like your virtual swear jar</h4>
-<h5>From your <a href="/profile">Profile Page</a> you can set missions to overcome your bad habits. When you break your promise, use the "Add to Jar" button to add money to your jar.</h5>
-<h5>Then, when you're ready, hit the "Pay Now" button to send your swear jar funds to the charity of your choice</h5>
-<h5>Got everything? Cool! Let's jumpt to your <a href="/profile">Profile Page</a> to get you set up with your first mission.</h5>
+<h1 class="mediumHeadline">My Swear Jar</h1>
+<div class="text-center">
+	<a href="/missions/<%= @current_mission.id %>/edit">
+		<button class="btn btn-success btn-lg">Add to Swear Jar</button>
+	</a>
+</div>
 
-<style>
-	h4, h5 {
-		text-align: center;
-	}
-</style>
+<div class="link"><a href="/missions/<%= @current_mission.id %>" class="hvr-grow-rotate hvr-reveal">
+	<h3>Current Balance: $<%= @current_mission.current_balance %></h3></a>
+</div>
+
+<div class="activity">
+	<h2 class="mediumHeadline">What's the scoop?</h2>
+	<p class="friend">Your friend John added $5 today to his swear jar for forgetting to take the garbage out this morning.</p>
+	<p class="me">You added $100 at 3:55PM for swearing.</p>
+	<p class="friend">Your friend John added $5 today to his swear jar for forgetting to take the garbage out this morning.</p>
+	<p class="me">You added $100 at 3:55PM for swearing.</p>
+</div>

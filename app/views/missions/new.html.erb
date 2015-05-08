@@ -1,2 +1,25 @@
-<h1>Missions#new</h1>
-<p>Find me in app/views/missions/new.html.erb</p>
+<h1>Hello, <%= @current_user.first_name %>!</h1>
+<h2>Let's get started.</h2>
+
+<form action="/missions" method="POST">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<p>
+	    <label for="question">What bad habit are you trying to give up?</label>
+	    <input type="text" placeholder="e.g. giving up swearing, etc." name="mission[bad_habit]">
+	</p>
+	<p>
+	    <label for="question">What is your deadline for breaking this habit?</label>
+			<input type="date" name="mission[target_deadline]">
+	</p>
+	<p>
+	    <label for="charity">To which charity will you donate your swear jar funds?</label>
+	    <input type="text" name="mission[charity]">
+	</p>
+	<p>
+	    <label for="amount">What is your donation goal?</label>
+	    <input type="currency" name="mission[contribution_goal]">
+	</p>
+	<p>
+	    <input type="submit" value="SUBMIT" id="submit">
+	</p>
+</form>

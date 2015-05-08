@@ -1,0 +1,107 @@
+<h1>Profile Page</h1>
+<div class="col-md-2"></div>
+<div class="col-md-3 titles actions">
+	<p>Your info</p>
+</div>
+<div class="col-md-3 info actions">
+	<p class="nolineheight"><%= @current_user.first_name %> <%= @current_user.last_name %><br><%= @current_user.email %></p>
+</div>
+<div class="col-md-3 actions">
+	<p><a href="/users/<%= @current_user.id %>/edit">Edit Info</a></p>
+</div>
+<div class="text-center">
+	<a href="/missions/new">
+		<button>Start new Mission</button>
+	</a>	
+</div>
+
+<div class="col-md-12 text-center">
+<h1>Missions</h1>
+<% @missions.each do |mission| %>
+	<table>
+		<thead>
+			<tr>
+				<td>Mission</td>
+				<td>Charity</td>
+				<td>Contribution Goal</td>
+				<td>Current Balance</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= mission.bad_habit %></td>
+				<td><%= mission.charity %></td>
+				<td><%= mission.contribution_goal %></td>
+				<td><%= mission.current_balance %></td>
+			</tr>
+		</tbody>
+	</table>
+	
+<% end %>
+
+
+	<br>
+	<br>
+
+	<div>
+		<h4>Friend Requests</h4>
+		<% if @invitations.empty? %>
+			<p>You don't have any friend requests right now..</p>
+		<% else %>
+		<table>
+			<thead>
+				<tr>
+					<td>UserName</td>
+					<td>Action</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @invitations.each do |invite| %>
+					<tr>
+						<td><%= invite.user.first_name %> <%= invite.user.last_name %></td>
+						<td>
+							<form action="/friendships/<%= invite.user.id %>" method="POST">
+								<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+								<input type="hidden" name="_method" value="put">
+								<input type="submit" value="Accept" data-disable-with="Processing..">
+							</form>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+
+	<div>
+		<h4>Your Friends</h4>
+		<% if @friends.empty? %>
+			<p>You don't have any friends currently? Why not add some on the <a href="/search">Search</a> page</p>
+		<% else %>
+		<table>
+			<thead>
+				<tr>
+					<td>UserName</td>
+					<td>Action</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @friends.each do |friend| %>
+					<tr>
+						<td><%= friend.user.first_name %> <%= friend.user.last_name %></td>
+						<td>
+							<form action="/friendships/<%= friend.user.id %>" method="POST">
+								<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+								<input type="hidden" name="_method" value="delete">
+								<input type="submit" value="Remove" data-disable-with="Processing..">
+							</form>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+
+
+</div>

@@ -11,9 +11,9 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-	<div id="main">
-		<%= render 'layouts/header' %>
+<body>    
+  <div id="main">
+    <%= render 'layouts/header' %>
     <% if flash[:errors_array] %>
       <%= pluralize(flash[:errors_array].count, "error")%> preventd you from submitting: 
         <% flash[:errors_array].each do |msg| %>
@@ -26,7 +26,8 @@
     <% if flash[:success] %>
      <%= flash[:success] %>
     <% end %>
-		<%= yield %>
-	</div>
+    <%= yield %>
+
+  </div>
 </body>
 </html>

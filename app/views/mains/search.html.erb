@@ -1,0 +1,26 @@
+<h1>Find and Connect with your Friends</h1>
+
+<table>
+	<thead>
+		<tr>
+			<td>User Name</td>
+			<td>Action</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<% if @friends.where(user_id: user.id, friend_id: @current_user.id).empty? && @friends.where(user_id: @current_user.id, friend_id: user.id).empty? %>
+			<tr>
+				<td><%= user.first_name %> <%= user.last_name %></td>
+				<td>
+					<form action="/friendships" method="POST">
+						<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+						<input type="hidden" name="friend[friend_id]" value="<%= user.id %>">
+						<input type="submit" value="Invite" data-disable-with="Sending Invite..">
+					</form>
+				</td>
+			</tr>
+		<% end %>
+		<% end %>
+	</tbody>
+</table>
