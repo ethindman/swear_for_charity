@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+table, td, th {
+	border: 2px solid #D1DED5;
+}
+
+table {
+	border-collapse: collapse;
+	width: 80%;
+	margin: 0 auto;
+}
+
+th {
+	height: 50px;
+	text-align: left;
+	background-color: #D1DED5;
+}
+
+td {
+	height: 50px;
+	vertical-align: bottom;
+	padding: 15px;
+}
+
+th, td {
+	text-align: center;
+}
+
+#no-requests {
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+.btn-destroy {
+	background: #776D5A;
+	color: #EFF0D1;
+}
+
+.btn-create {
+	background: #68B25B;
+	color: #EFF0D1;
+}

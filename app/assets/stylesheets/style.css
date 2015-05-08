@@ -2,12 +2,12 @@
 
 h1, h2 {
   
-  font-family: 'Amatic SC', cursive;  color: #889FA6;
+  font-family: 'Amatic SC', cursive;
   font-size: 54px;
   text-align: center;
 }
 
-form {
+#myform {
   background: #EFF0D1;
   padding: 2em 2em 1em;
   max-width: 400px;
@@ -15,6 +15,7 @@ form {
   box-shadow: 0 0 1em #222;
   border-radius: 5px;
 }
+
 p {
   margin: 0 0 3em 0;
   position: relative;
@@ -25,24 +26,25 @@ label {
   color: #333;
   font-family: 'Raleway', sans-serif;
 }
-input {
+
+#myinput {
   display: block;
   box-sizing: border-box;
   width: 100%;
   outline: none;
  }
 
-input[type="text"],
-input[type="password"],
-input[type="checkbox"] {
+#myinput[type="text"],
+#myinput[type="password"],
+#myinput[type="checkbox"] {
   background: #f5f5f5;
   border: 1px solid #e5e5e5;
   padding: .8em .5em;
   border-radius: 5px;
   margin-top: 15px;
 }
-input[type="text"]:focus,
-input[type="password"]:focus {
+#myinput[type="text"]:focus,
+#myinput[type="password"]:focus {
   background: #776D5A
 }
 span {
@@ -71,7 +73,7 @@ span:after {
   border-width: 8px;
   margin-top: -8px;
 }
-input[type="submit"] {
+#myinput[type="submit"] {
   background: #776D5A;
   border-radius: 5px;
   border: none;

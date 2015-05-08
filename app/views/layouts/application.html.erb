@@ -14,20 +14,7 @@
 <body>    
   <div id="main">
     <%= render 'layouts/header' %>
-    <% if flash[:errors_array] %>
-      <%= pluralize(flash[:errors_array].count, "error")%> preventd you from submitting: 
-        <% flash[:errors_array].each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-    <% end %>
-    <% if flash[:errors] %>
-      <%= flash[:errors] %>
-    <% end %>
-    <% if flash[:success] %>
-     <%= flash[:success] %>
-    <% end %>
     <%= yield %>
-
   </div>
 </body>
 </html>

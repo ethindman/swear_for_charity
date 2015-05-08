@@ -1,14 +1,18 @@
 <div id="loginNav">
 	<nav>
 		<ul>
-			<li class="hvr-underline-from-left"><a href="/mains">Home</a></li>
+			<% if signed_in? %>
+				<li class="hvr-underline-from-left"><a href="/mains">Home</a></li>
+			<% else %>
+				<li class="hvr-underline-from-left"><a href="/sessions/new">Home</a></li>
+			<% end %>
 			<li class="hvr-underline-from-left"><a href="/about">About</a></li>
+			<% if signed_in? %>
 			<li class="hvr-underline-from-left"><a href="/search">Find</a></li>
 			<li class="hvr-underline-from-left"><a href="/profile">Profile</a></li>
-			<% if signed_in? %>
 				<li class="selected"><a href="/logout">Logout</a></li>
 			<% else %>
-				<li class="selected"><a href="/sessions/new">Login</a></li>
+				<li><a href="/sessions/new">Login</a></li>
 			<% end %>
 		</ul>
 	</nav>

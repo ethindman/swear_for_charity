@@ -11,12 +11,13 @@
 </div>
 <div class="text-center">
 	<a href="/missions/new">
-		<button>Start new Mission</button>
+		<button class="btn btn-create btn-lg">Start new Mission</button>
 	</a>	
 </div>
 
 <div class="col-md-12 text-center">
 <h1>Missions</h1>
+<br>
 <% @missions.each do |mission| %>
 	<table>
 		<thead>
@@ -44,9 +45,42 @@
 	<br>
 
 	<div>
+		<h4>Your Friends</h4>
+		<% if @friends.empty? %>
+			<p>You don't have any friends currently? Why not add some on the <a href="/search">Search</a> page</p>
+		<% else %>
+		<table>
+			<thead>
+				<tr>
+					<td>UserName</td>
+					<td>Action</td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @friends.each do |friend| %>
+					<tr>
+						<td><%= friend.user.first_name %> <%= friend.user.last_name %></td>
+						<td>
+							<form action="/friendships/<%= friend.user.id %>" method="POST">
+								<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+								<input type="hidden" name="_method" value="delete">
+								<input type="submit" class="btn btn-lg btn-destroy" value="Remove" data-disable-with="Processing..">
+							</form>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<% end %>
+	</div>
+
+	<br>
+	<br>
+
+	<div>
 		<h4>Friend Requests</h4>
 		<% if @invitations.empty? %>
-			<p>You don't have any friend requests right now..</p>
+			<p id="no-requests">You don't have any friend requests right now..</p>
 		<% else %>
 		<table>
 			<thead>
@@ -72,36 +106,5 @@
 		</table>
 		<% end %>
 	</div>
-
-	<div>
-		<h4>Your Friends</h4>
-		<% if @friends.empty? %>
-			<p>You don't have any friends currently? Why not add some on the <a href="/search">Search</a> page</p>
-		<% else %>
-		<table>
-			<thead>
-				<tr>
-					<td>UserName</td>
-					<td>Action</td>
-				</tr>
-			</thead>
-			<tbody>
-				<% @friends.each do |friend| %>
-					<tr>
-						<td><%= friend.user.first_name %> <%= friend.user.last_name %></td>
-						<td>
-							<form action="/friendships/<%= friend.user.id %>" method="POST">
-								<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-								<input type="hidden" name="_method" value="delete">
-								<input type="submit" value="Remove" data-disable-with="Processing..">
-							</form>
-						</td>
-					</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<% end %>
-	</div>
-
 
 </div>

@@ -15,6 +15,10 @@
 <div class="activity">
 	<h2 class="mediumHeadline">What's the scoop?</h2>
 	<% @updates.each do |update| %>
-			<p class="friend"><%= update.user.first_name %> added $<%= update.amount %> to the swear jar</p>	
+			<% if update.user_id == @current_user.id %>
+			<p class="friend">You added $<%= update.amount %> to your swear jar about <%= distance_of_time_in_words(update.created_at, Time.new()) %> ago.. </p>	
+			<% else %>
+			<p class="me"><%= update.user.first_name %> added $<%= update.amount %> to the swear jar about <%= distance_of_time_in_words(update.created_at, Time.new()) %> ago.. </p>	
+			<% end %>
 	<% end %>
 	</div>

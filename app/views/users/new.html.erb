@@ -1,28 +1,28 @@
 <h1 class="title">Swear Jar.</h1>
 <h3 id="subtitle">Turning Your Bad Habit into Something Good</h3>
 <h1 class="mediumHeadline">Sign Up Now!</h1>
-<form action="/users" method="POST">
+<form id="myform" action="/users" method="POST">
 	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
   <p>
     <label for="first_name">First Name:</label>
-    <input id="first_name" name="user[first_name]" type="text">
+    <input id="myinput" name="user[first_name]" type="text">
   </p>
   <p>
     <label for="last_name">Last Name:</label>
-    <input id="last_name" name="user[last_name]" type="text">
+    <input id="myinput" name="user[last_name]" type="text">
   </p>
   <p>
     <label for="email">Email:</label>
-    <input id="email" name="user[email]" type="text">
+    <input id="myinput" name="user[email]" type="text">
   </p>
   <p>
     <label for="password">Password</label>
-    <input id="password" name="user[password]" type="password">
+    <input id="myinput" name="user[password]" type="password">
     <span>Enter a password longer than 8 characters</span>
   </p>
   <p>
     <label for="password_confirmation">Confirm Password</label>
-    <input id="password_confirmation" name="user[password_confirmation]" type="password">
+    <input id="myinput" name="user[password_confirmation]" type="password">
     <span>Please confirm your password</span>
   </p>
   <p>

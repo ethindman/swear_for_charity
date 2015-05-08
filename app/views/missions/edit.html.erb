@@ -1,13 +1,13 @@
 <h1 id="add">Aw man, not again!</h1>
 <h2 class="about">That's okay; you're only doing it for a good cause.</h2>
-<form action="/missions/<%= @mission.id %>" method="post">
+<form id="myform" action="/missions/<%= @mission.id %>" method="post">
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	<input type="hidden" name="_method" value="put">
   <p>
     <label for="amount">How much are you adding?</label>
-    <input type="float" name="amount">
+    <input id="myinput" type="float" name="amount">
   </p>
   <p>
-    <input type="submit" value="Put it in the Swear Jar!">
+    <input id="myinput" type="submit" value="Put it in the Swear Jar!">
   </p>
 </form>
