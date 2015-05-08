@@ -1,0 +1,23 @@
+<div class="div">
+	<h1>WELCOME to Swear for Charity!</h1>
+	<h2>We're so glad to see you.</h2>
+</div>
+<div class="form">
+	<form action="/sessions" method="POST">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<p>
+			<input type="text" name="session[email]" placeholder="Email Address">
+			<input type="password" name="session[password]" placeholder="Password">
+		</p> 
+		<p class="submit">
+			<input type="submit">
+		</p>
+		<p id="lostpassword" class="details">
+			<a href="#" class="hvr-underline-from-left">Lost Password?</a>
+		</p>
+		<div class="nologin">
+			<p>No login? No problem!</p>
+			<a href="/users/new">Sign up now</a>
+		</div>
+	</form>			
+</div>

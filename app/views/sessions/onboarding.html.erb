@@ -1,0 +1,33 @@
+<h1>Welcome to Swear Jar, <%= @current_user.first_name %></h1>
+<h2>Let's get started.</h2>
+<form action="" method="post">
+    <h1 class="plans">Tell us about your plans.</h1>
+    <p>
+        <label for="question">What bad habit are you trying to give up?</label>
+        <input type="text" name="profile">
+    </p>
+    <p>
+        <label for="question">What is your deadline for breaking this habit?</label>
+        <select name="time">
+            <option value="<3months">0-3 Months</option>
+            <option value="<6months">3-6 Months</option>
+            <option value="<1year">6-12 Months</option>
+        </select>
+    </p>
+    <p>
+        <label for="charity">To which charity will you donate your swear jar funds?</label>
+        <input type="text">
+    </p>
+    <p>
+        <label for="amount">How much will you be adding to your swear jar for each offense?</label>
+        <select name="amount">
+            <option value="25">25 cents</option>
+            <option value="50">50 cents</option>
+            <option value="100">$1.00</option>
+            <option value="custom">Enter custom amount</option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="SUBMIT" id="submit">
+    </p>
+</form>

@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+}
+body {
+	background-color: #EFF0D1;
+}
+
+h1 {
+	
+	font-family: 'Amatic SC', cursive;  color: #889FA6;
+	font-size: 124px;
+}
+
+ul li a {
+	font-size: 20px;
+	font-family: 'Raleway', sans-serif; 
+	color:#889FA6; 
+}
+ 

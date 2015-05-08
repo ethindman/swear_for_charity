@@ -1,0 +1,22 @@
+body {
+	background-color: #EFF0D1: 
+}
+
+h1 {
+	font-family: 'Amatic SC', cursive; 
+	color: #889FA6;
+	font-size: 44px;
+}
+
+h2 {
+	font-family: 'Amatic SC', cursive; 
+	color: #889FA6;
+	text-align: center;
+}
+
+img {
+	width: 400px;
+	height: 266;
+	margin-top: 15px;
+	border-radius: 20px;
+}

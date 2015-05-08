@@ -1,0 +1,14 @@
+<div id="loginNav">
+	<nav>
+		<ul>
+			<li class="hvr-underline-from-left"><a href="index.html">Home</a></li>
+			<li class="hvr-underline-from-left"><a href="aboutus.html">About</a></li>
+			<li class="hvr-underline-from-left"><a href="profile.html">Profile</a></li>
+			<% if signed_in? %>
+				<li class="selected"><a href="/logout">Logout</a></li>
+			<% else %>
+				<li class="selected"><a href="/sessions/new">Login</a></li>
+			<% end %>
+		</ul>
+	</nav>
+</div>
